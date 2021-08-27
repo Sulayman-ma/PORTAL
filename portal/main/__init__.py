@@ -2,8 +2,9 @@
 from flask import Blueprint
 
 
-# app main blueprint
+# app main and authentication blueprints
 main = Blueprint('main', __name__)
+auth = Blueprint('auth', __name__)
 
 # import views into blueprint after creating it
 # importing before creating blueprint would give import issues

@@ -16,9 +16,10 @@ class User(db.Model):
 
     id = db.Column(db.Integer, primary_key = True)
     reg_number = db.Column(db.String(16), unique = True)
-    email = db.Column(db.String(64), unique = True, index = True)
+    email = db.Column(db.String(64), index = True)
     password_hash = db.Column(db.String(128))
-    name = db.Column(db.String(64))
+    first_name = db.Column(db.String(64))
+    last_name = db.Column(db.String(64))
 
     def __init__(self, **kwargs):
         """ Init has no true use yet until roles are added """
