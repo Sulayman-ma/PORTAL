@@ -16,7 +16,7 @@ class User(db.Model):
 
     id = db.Column(db.Integer, primary_key = True)
     reg_number = db.Column(db.String(16), unique = True)
-    email = db.Column(db.String(64), index = True)
+    # email = db.Column(db.String(64), index = True)
     password_hash = db.Column(db.String(128))
     first_name = db.Column(db.String(64))
     last_name = db.Column(db.String(64))
@@ -27,7 +27,7 @@ class User(db.Model):
         
 
     def __repr__(self):
-        return "<{} - {}>".format(self.reg_number, self.name)
+        return "< #{} - {} >".format(self.id, self.reg_number)
 
 
     @property

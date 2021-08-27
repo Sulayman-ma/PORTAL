@@ -6,9 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PROJECT P - {% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     {% endblock %}
 </head>
 <body>
+    <header>
+        <h1>PROJECT P</h1>
+        <nav class="header-nav">
+            <li class="nav-link"><a href="{{ url_for('main.index') }}">Home</a></li>
+            <li class="nav-link"><a href="{{ url_for('main.register') }}">Register</a></li>
+        </nav>
+    </header>
+
     {% block body %}{% endblock %}
 </body>
 </html>

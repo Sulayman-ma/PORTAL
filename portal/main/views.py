@@ -1,20 +1,20 @@
-# App main view functions handling most common requests
+# App's view functions handling most common requests
 
 from portal import db
 from portal.main.models import User
 from portal.main.forms import RegForm
 from flask import redirect, url_for
 from flask.templating import render_template
-from . import main, auth
+from . import main
 
 
 
-@main.route('/', methods = ['GET', 'POST'])
-def index():
+@main.route('/<>', methods = ['GET', 'POST'])
+def index(user):
     return render_template('main/index.html')
 
 
-@auth.route('/registeration', methods = ['GET', 'POST'])
+@main.route('/registeration', methods = ['GET', 'POST'])
 def register():
     form = RegForm()
     if form.validate_on_submit():
@@ -25,3 +25,4 @@ def register():
         db.session.add(user)
         db.session.commit()
         return redirect(url_for('main.index'))
+    return render_template('auth/register.html', form = form)

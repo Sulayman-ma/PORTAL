@@ -5,7 +5,38 @@
 {% block body %}
 
 <form action="" method="post">
-    
+    {{ form.hidden_tag() }}
+
+    <div class="group">
+        {{ form.first_name.label }}
+        {{ form.first_name(size = '50') }}
+    </div>
+
+    <div class="group">
+        {{ form.last_name.label }}
+        {{ form.last_name(size = '50') }}
+    </div>
+
+    <div class="group">
+        {{ form.reg_number.label }}
+        {{ form.reg_number(size = '50') }}
+    </div>
+
+    <div class="group">
+        {{ form.password.label }}
+        {{ form.password(size = '50') }}
+    </div>
+
+    <div class="group">
+        {{ form.password2.label }}
+        {{ form.password2(size = '50') }}
+    </div>
+
+    <hr>
+
+    <div class="submit" id="submit">
+        {{ form.submit() }}
+    </div>
 </form>
 
 {% endblock %}

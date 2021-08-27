@@ -3,7 +3,6 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from config import configs
-from .main import main
 
 
 db = SQLAlchemy()
@@ -24,6 +23,10 @@ def create_app(config_name):
     db.init_app(app)
     
     # TODO: Blueprint registeration
+    # blueprint cannot be imported at top
+    # this is that circular import I mentioned back there
+    from .main import main
+
     app.register_blueprint(main)
 
     # Final application instance
