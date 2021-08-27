@@ -3,7 +3,7 @@
 
 from datetime import datetime
 from werkzeug.security import generate_password_hash, check_password_hash
-from . import db
+from portal import db
 
 
 class User(db.Model):
@@ -21,10 +21,13 @@ class User(db.Model):
     name = db.Column(db.String(64))
 
     def __init__(self, **kwargs):
+        """ Init has no true use yet until roles are added """
         super().__init__(**kwargs)
+        
 
     def __repr__(self):
         return "<{} - {}>".format(self.reg_number, self.name)
+
 
     @property
     def password(self):
