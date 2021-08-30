@@ -12,4 +12,4 @@ def make_shell_context():
     return dict(db = db, User = User)
 
 
-# app.run(debug = True)
+app.run(debug = True)
