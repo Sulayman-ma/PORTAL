@@ -2,7 +2,7 @@ from flask_wtf import FlaskForm
 from flask_wtf.recaptcha import fields
 from wtforms.validators import DataRequired, EqualTo, ValidationError
 from wtforms.fields import StringField, PasswordField, SubmitField, BooleanField
-from .models import User
+from ..models import User
 
 
 class RegForm(FlaskForm):

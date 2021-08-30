@@ -5,6 +5,7 @@ from flask_sqlalchemy import SQLAlchemy
 from config import configs
 
 
+
 db = SQLAlchemy()
 
 
@@ -26,8 +27,10 @@ def create_app(config_name):
     # blueprint cannot be imported at top
     # this is that circular import I mentioned back there
     from .main import main
+    from .auth import auth
 
     app.register_blueprint(main)
+    app.register_blueprint(auth)
 
     # Final application instance
     return app
