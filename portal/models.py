@@ -3,7 +3,7 @@
 
 from datetime import datetime
 from werkzeug.security import generate_password_hash, check_password_hash
-from portal import db
+from . import db
 
 
 class User(db.Model):
@@ -15,19 +15,20 @@ class User(db.Model):
     __tablename__ = "users"
 
     id = db.Column(db.Integer, primary_key = True)
-    reg_number = db.Column(db.String(16), unique = True)
-    # email = db.Column(db.String(64), index = True)
-    password_hash = db.Column(db.String(128))
+    reg_number = db.Column(db.String(16), unique = True, index = True)
     first_name = db.Column(db.String(64))
     last_name = db.Column(db.String(64))
-
+    department = db.Column(db.String(64), index = True)
+    level = db.Column(db.Integer, index = True)
+    password_hash = db.Column(db.String(128))
+    
     def __init__(self, **kwargs):
         """ Init has no true use yet until roles are added """
         super().__init__(**kwargs)
         
 
     def __repr__(self):
-        return "< #{} - {} >".format(self.id, self.reg_number)
+        return "< User {} >".format(self.reg_number)
 
 
     @property

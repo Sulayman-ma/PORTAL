@@ -4,7 +4,7 @@
 
 {% block body %}
 
-<form action="" method="post">
+<form enctype="multipart/form-data" method="post">
     {{ form.hidden_tag() }}
 
     <div class="group">
@@ -23,6 +23,16 @@
     </div>
 
     <div class="group">
+        {{ form.department.label }}
+        {{ form.department(size = '50') }}
+    </div>
+
+    <div class="group">
+        {{ form.level.label }}
+        {{ form.level(size = '50') }}
+    </div>
+
+    <div class="group">
         {{ form.password.label }}
         {{ form.password(size = '50') }}
     </div>
@@ -32,7 +42,10 @@
         {{ form.password2(size = '50') }}
     </div>
 
-    <hr>
+    <div class="group">
+        <label for="">Upload passport photo: </label>
+        <input type="file" name="photo" id="">
+    </div>
 
     <div class="submit" id="submit">
         {{ form.submit() }}

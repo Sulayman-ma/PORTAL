@@ -19,6 +19,10 @@ class Config:
 
 class Development(Config):
     SQLALCHEMY_DATABASE_URI = 'sqlite:///' + join(base_dir, 'dev.sqlite')
+    UPLOADED_PHOTOS_DEST = join(base_dir, 'portal/static/img/')
+    UPLOADED_PHOTOS_ALLOW = set(['png', 'jpg', 'jpeg'])
+    # 3MB max file upload size
+    MAX_CONTENT_LENGTH = 3 * 1024 * 1024
 
 
 class Testing(Config):
