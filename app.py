@@ -12,4 +12,4 @@ def make_shell_context():
     return dict(db = db, User = User)
 
 
-# app.run(host='0.0.0.0', port=8080, debug = True)
+app.run(debug = True)
